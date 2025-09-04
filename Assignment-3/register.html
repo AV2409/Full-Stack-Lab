@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | TechNova 2025</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>TechNova 2025</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="register.html" class="active">Register</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact & FAQs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section>
+                <h2>Participant Registration</h2>
+                <p>Fill out the form below to secure your spot in the events. We're excited to have you!</p>
+                <form class="registration-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="college">College Name</label>
+                        <input type="text" id="college" name="college" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="events">Select Event(s) to Participate In</label>
+                        <select id="events" name="events[]" multiple required>
+                            <option value="codestorm">CodeStorm</option>
+                            <option value="robowars">RoboWars</option>
+                            <option value="innovatex">InnovateX</option>
+                            <option value="designathon">DesignaThon</option>
+                            <option value="gamejam">GameJam</option>
+                        </select>
+                        <small>Hold Ctrl (or Cmd on Mac) to select multiple events.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="questions">Any Questions or Team Details?</label>
+                        <textarea id="questions" name="questions" rows="4"></textarea>
+                    </div>
+                    <button type="submit">Submit Registration</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Thapar University. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
