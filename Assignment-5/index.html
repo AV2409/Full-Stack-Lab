@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Programs</title>
+</head>
+
+<body>
+    <h2>JavaScript Programs</h2>
+
+    <!-- i. Input two numbers and perform operations -->
+    <h3>i. Sum, Difference, Product, Quotient</h3>
+    <button onclick="calculate()">Enter Numbers</button>
+    <pre id="calcResult"></pre>
+
+    <!-- ii. Array operations -->
+    <h3>ii. Array Operations</h3>
+    <button onclick="arrayOps()">Run Array Operations</button>
+    <pre id="arrayResult"></pre>
+
+    <!-- iii. Form validation -->
+    <h3>iii. Form Validation</h3>
+    <form id="myForm">
+        <label>Name:</label>
+        <input type="text" id="name"><br><br>
+
+        <label>Email:</label>
+        <input type="text" id="email"><br><br>
+
+        <label>Age:</label>
+        <input type="text" id="age"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- iv. Student object -->
+    <h3>iv. Student Object</h3>
+    <button onclick="studentOps()">Show Student Info</button>
+    <pre id="studentResult"></pre>
+
+    <!-- v. Array with map, filter, reduce -->
+    <h3>v. Array Functions</h3>
+    <button onclick="processArray([1,2,3,4,5,6])">Process Array</button>
+    <pre id="processResult"></pre>
+
+    <script>
+        // i. Take two numbers and perform operations
+        function calculate() {
+            let num1 = parseFloat(prompt("Enter first number:"));
+            let num2 = parseFloat(prompt("Enter second number:"));
+
+            let output = "";
+            output += "Sum: " + (num1 + num2) + "\n";
+            output += "Difference: " + (num1 - num2) + "\n";
+            output += "Product: " + (num1 * num2) + "\n";
+            output += "Quotient: " + (num1 / num2) + "\n";
+
+            document.getElementById("calcResult").textContent = output;
+        }
+
+        // ii. Array Operations
+        function arrayOps() {
+            let arr = [45, 12, 89, 34, 7];
+            let largest = Math.max(...arr);
+            let smallest = Math.min(...arr);
+            let ascending = [...arr].sort((a, b) => a - b);
+            let descending = [...arr].sort((a, b) => b - a);
+
+            let output = "";
+            output += "Original Array: " + arr + "\n";
+            output += "Largest: " + largest + "\n";
+            output += "Smallest: " + smallest + "\n";
+            output += "Ascending: " + ascending + "\n";
+            output += "Descending: " + descending + "\n";
+
+            document.getElementById("arrayResult").textContent = output;
+        }
+
+        // iii. Form Validation
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let age = parseInt(document.getElementById("age").value);
+
+            if (name === "") {
+                alert("Name cannot be empty!");
+                return;
+            }
+
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert("Invalid email format!");
+                return;
+            }
+
+            if (isNaN(age) || age < 18 || age > 100) {
+                alert("Age must be between 18 and 100!");
+                return;
+            }
+
+            alert("Form submitted successfully!");
+        });
+
+        // iv. Student Object
+        function studentOps() {
+            let student = {
+                name: "John Doe",
+                age: 20,
+                grades: 85
+            };
+
+            student.class = "12th Grade"; // Add property
+            student.grades = 90;          // Update grade
+
+            let output = "";
+            for (let key in student) {
+                output += key + ": " + student[key] + "\n";
+            }
+
+            document.getElementById("studentResult").textContent = output;
+        }
+
+        // v. Array Functions
+        function processArray(arr) {
+            let result = arr
+                .filter(num => num % 2 === 0)   // Remove odd
+                .map(num => num * 2);          // Multiply by 2
+
+            let sum = result.reduce((acc, num) => acc + num, 0);
+
+            let output = "";
+            output += "Filtered & Multiplied Array: " + result + "\n";
+            output += "Sum: " + sum;
+
+            document.getElementById("processResult").textContent = output;
+        }
+    </script>
+</body>
+
+</html>
